@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drop</title>
+    <style>
+    	select, p, input {
+        	font: 1em Calibri;
+        }
+body{ background-color:#92a8d1;
+       }
+p{   color: red; margin:10px 5 px;  font-family: Sitka Small;
+  font-size: 160%; text-align:center;}
+h1{ color:black; font-family: Sylfaen; text-align:center;
+  font-size: 500%;}
+
+    </style>
+</head>
+<body>
+ <h1> Welcome To Country Selection</h1>
+    <p>
+        <input type="button" 
+            style="margin:10px 0;" 
+              onclick="populateSelect()" 
+value="Click to get list"  
+<!--The SELECT element.-->
+    <select id="sel" onchange="show(this)">
+        
+        <option value="">-- Select --</option>
+    </select>
+
+           
+    </p>
+
+    
+
+    <p id="msg"></p>
+
+    
+</body>
+
+<script>
+    function populateSelect() {
+        // THE JSON ARRAY.
+        var countries = [
+{
+    "id":"1",
+    "name":"USA",
+    "code":"121"
+   
+   }, 
+   {
+    "id":"2",
+    "name":"Canada",
+    
+   }, 
+   {
+    "id":"3",
+    "name":"Australia",
+   
+   }, 
+   {
+    "id":"4",
+    "name":"New York",
+  
+   }, 
+   {
+    "id":"5",
+    "name":"Alabama",
+ 
+   }, 
+   {
+    "id":"6",
+    "name":"California",
+  
+   }, 
+   {
+    "id":"7",
+    "name":"Ontario",
+    
+   }, 
+   {
+    "id":"8",
+    "name":"British Columbia",
+   
+   }, 
+   {
+    "id":"9",
+    "name":"New South Wales",
+   
+   }, 
+   {
+    "id":"10",
+    "name":"Queensland",
+   
+   }, 
+   {
+    "id":"11",
+    "name":"New York city",
+   
+   }, 
+   {
+    "id":"12",
+    "name":"Buffalo",
+   
+   }, 
+   {
+    "id":"13",
+    "name":"Albany",
+ 
+   }, 
+   {
+    "id":"14",
+    "name":"Birmingham",
+   
+   }, 
+   {
+    "id":"15",
+    "name":"Montgomery",
+   
+   }, 
+   {
+    "id":"16",
+    "name":"Huntsville",
+   
+   }, 
+   {
+    "id":"17",
+    "name":"Los Angeles",
+   
+   }, 
+   {
+    "id":"18",
+    "name":"San Francisco",
+  
+   }, 
+   {
+    "id":"19",
+    "name":"San Diego",
+   
+   }, 
+   {
+    "id":"20",
+    "name":"Toronto",
+    
+   }, 
+   {
+    "id":"21",
+    "name":"Ottawa",
+    
+   }, 
+   {
+    "id":"22",
+    "name":"Vancouver",
+  
+   }, 
+   {
+    "id":"23",
+    "name":"Victoria",
+   
+   }, 
+   {
+    "id":"24",
+    "name":"Sydney",
+  
+   }, 
+   {
+    "id":"25",
+    "name":"Newcastle",
+   
+   },
+   
+  
+];
+
+        var ele = document.getElementById('sel');
+        for (var i = 0; i < countries.length; i++) {
+            // POPULATE SELECT ELEMENT WITH JSON.
+            ele.innerHTML = ele.innerHTML +
+                '<option value="' + countries[i]['id'] + '">' + countries[i]['name'] + '</option>';
+        }
+    }
+
+    function show(ele) {
+        // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
+        var msg = document.getElementById('msg');
+        msg.innerHTML = 'Selected country: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>'  +
+            'id: <b>' + ele.value + '</b>';
+    }
+</script>
+</html>
